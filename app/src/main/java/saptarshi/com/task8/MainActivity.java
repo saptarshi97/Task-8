@@ -1,10 +1,12 @@
 package saptarshi.com.task8;
 
+import android.content.Context;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
+import android.widget.Toast;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -54,6 +56,11 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onFailure(Call<saptarshi.com.task8.JSONResponse> call, Throwable t) {
                 Log.d("Error",t.getMessage());
+                Context context = getApplicationContext();
+                int duration = Toast.LENGTH_SHORT;
+
+                Toast toast = Toast.makeText(context,"Not Connected !", duration);
+                toast.show();
             }
         });
     }
